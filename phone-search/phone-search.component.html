@@ -1,0 +1,34 @@
+<section class="card">
+  <h3 style="margin:0 0 10px 0">Фільтр телефонів за полем <code>model</code></h3>
+
+  <div class="controls">
+    <input class="search" placeholder="Введіть для пошуку (напр., Galaxy, iPhone, Pixel)"
+           [(ngModel)]="query" />
+    <div class="btns">
+      <button class="btn" (click)="addPhone()">+ Додати елемент (push)</button>
+      <button class="btn ghost" (click)="replaceArray()">+ Додати (replace array)</button>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="col">
+      <h4 class="muted" title="pure: true">Чистий пайп</h4>
+      <ul class="list">
+        <li *ngFor="let p of phones | filterByField:'model':query">
+          <strong>{{ p.brand }}</strong> — {{ p.model }} <span class="tag">{{ p.os }}</span>
+        </li>
+      </ul>
+      <p class="note">Чистий пайп НЕ відреагує на <code>.push()</code>, але оновиться, якщо замінити посилання масиву (кнопка "replace array").</p>
+    </div>
+
+    <div class="col">
+      <h4 class="muted" title="pure: false">Нечистий пайп</h4>
+      <ul class="list">
+        <li *ngFor="let p of phones | filterByFieldImpure:'model':query">
+          <strong>{{ p.brand }}</strong> — {{ p.model }} <span class="tag">{{ p.os }}</span>
+        </li>
+      </ul>
+      <p class="note">Нечистий пайп відреагує і на <code>.push()</code>, і на заміну посилання масиву.</p>
+    </div>
+  </div>
+</section>
