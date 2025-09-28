@@ -1,0 +1,25 @@
+<a class="skip-link" href="#content">Пропустити до контенту</a>
+
+<app-header></app-header>
+
+<div class="layout" role="main" aria-label="Головний вміст">
+  <aside class="sidebar" aria-label="Фільтри та навігація">
+    <app-sidebar></app-sidebar>
+  </aside>
+
+  <section id="content" class="content" tabindex="-1">
+    <!-- PR-06: Демонстрація ієрархії сервісів -->
+    <section class="card" style="margin-bottom:12px">
+      <h3 style="margin:0 0 8px 0">Каталог мобільних телефонів</h3>
+      <ul style="margin:0;padding-left:18px">
+        <li *ngFor="let i of items">{{ i }}</li>
+      </ul>
+    </section>
+
+    <!-- Інший ваш контент -->
+    <app-user-profile></app-user-profile>
+    <app-main-content></app-main-content>
+  </section>
+</div>
+
+<app-footer></app-footer>
