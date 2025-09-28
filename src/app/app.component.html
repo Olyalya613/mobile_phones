@@ -1,0 +1,19 @@
+<!-- Лінк для швидкого переходу з клавіатури -->
+<a class="skip-link" href="#content">Пропустити до контенту</a>
+
+<!-- Хедер завжди зверху -->
+<app-header class="site-header" role="banner"></app-header>
+
+<!-- Основний макет: сайдбар + контент поруч -->
+<div class="layout" role="main" aria-label="Головний вміст">
+  <aside class="sidebar" aria-label="Навігація й фільтри">
+    <app-sidebar></app-sidebar>
+  </aside>
+
+  <section id="content" class="content" tabindex="-1">
+    <app-main-content></app-main-content>
+  </section>
+</div>
+
+<!-- Футер завжди знизу -->
+<app-footer class="site-footer" role="contentinfo"></app-footer>

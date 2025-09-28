@@ -1,0 +1,20 @@
+<header class="header container" role="banner">
+  <div class="header-card">
+    <div class="brand">
+      <div class="titles">
+        <h1 class="title">{{ projectName }}</h1>
+        <p class="tagline">{{ tagline }}</p>
+      </div>
+    </div>
+
+    <form class="search-form" role="search" aria-label="Пошук у каталозі" (submit)="$event.preventDefault()">
+      <label class="visually-hidden" for="q">Пошук</label>
+      <input id="q" class="search" placeholder="Знайти модель, бренд або ОС…" />
+      <button class="btn">Пошук</button>
+    </form>
+  </div>
+
+  <div class="meta">
+    <span class="badge">Оновлено • {{ year }}</span>
+  </div>
+</header>
