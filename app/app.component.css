@@ -1,0 +1,61 @@
+/* Базова трирядкова сітка: хедер, контент, футер */
+:host {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100dvh; /* краще для мобільних */
+}
+
+/* Лінк для доступності з клавіатури */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: #111a2b;
+  color: #e6edf7;
+  padding: 8px 12px;
+  border-radius: 10px;
+}
+.skip-link:focus {
+  left: 16px;
+  z-index: 1000;
+  outline: 2px solid #3b82f6;
+}
+
+.site-header,
+.site-footer {
+  backdrop-filter: saturate(1.2) blur(2px);
+}
+
+/* Дві колонки: сайдбар + контент */
+.layout {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 16px;
+  padding: 16px clamp(12px, 2vw, 24px);
+}
+
+/* Сайдбар фіксується на високих екранах, але не перекриває контент */
+.sidebar {
+  position: sticky;
+  top: 16px;
+  align-self: start;
+}
+
+/* Контент з адаптивною шириною */
+.content {
+  min-width: 0; /* важливо для переповнення */
+}
+
+/* Адаптивність: на вузьких екранах сайдбар під контентом */
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+  .sidebar {
+    order: 2;
+    position: static;
+  }
+  .content {
+    order: 1;
+  }
+}
