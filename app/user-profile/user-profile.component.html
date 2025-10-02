@@ -1,0 +1,36 @@
+<section class="profiles">
+  <header class="section-head">
+    <h2 class="title">Профілі користувачів</h2>
+    <p class="muted">Відображено {{ users.length }} профілі(в)</p>
+  </header>
+
+  <div class="grid">
+    <article class="card profile" *ngFor="let u of users" aria-labelledby="t-{{u.id}}">
+      <div class="row">
+        <div class="avatar" aria-hidden="true">{{ initials(u.name) }}</div>
+        <div class="info">
+          <h3 id="t-{{u.id}}" class="name">{{ u.name }}</h3>
+          <div class="meta">
+            <span class="id muted">ID: {{ u.id }}</span>
+            <span class="{{ statusClass(u) }}">{{ u.status }}</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h4 class="section-title">Адреса</h4>
+        <p class="address">
+          <span class="city">{{ u.address.city }}</span>,
+          <span class="street">{{ u.address.street }}</span>
+        </p>
+      </div>
+
+      <div class="section">
+        <h4 class="section-title">Хобі <span class="count">({{ getHobbiesCount(u) }})</span></h4>
+        <ul class="hobbies">
+          <li class="chip" *ngFor="let h of u.hobbies">{{ h }}</li>
+        </ul>
+      </div>
+    </article>
+  </div>
+</section>
