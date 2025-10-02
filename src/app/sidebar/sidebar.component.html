@@ -1,0 +1,23 @@
+<aside>
+  <div class="card">
+    <h3 style="margin-top:0">Фільтри</h3>
+    <div style="margin-bottom:12px">
+      <strong>Бренд</strong>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:8px">
+        <span class="badge" *ngFor="let b of brands">{{ b }}</span>
+      </div>
+    </div>
+    <div style="margin-bottom:12px">
+      <strong>ОС</strong>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:8px">
+        <span class="badge" *ngFor="let os of osList">{{ os }}</span>
+      </div>
+    </div>
+    <div>
+      <strong>Ціна</strong>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:8px">
+        <span class="badge" *ngFor="let p of priceRanges">{{ p }}</span>
+      </div>
+    </div>
+  </div>
+</aside>

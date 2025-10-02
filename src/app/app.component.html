@@ -1,0 +1,60 @@
+<a class="skip-link" href="#content">Пропустити до контенту</a>
+
+<app-header></app-header>
+
+<div class="layout" role="main" aria-label="Головний вміст">
+  <aside class="sidebar" aria-label="Фільтри та навігація">
+    <app-sidebar></app-sidebar>
+  </aside>
+
+  <section id="content" class="content" tabindex="-1">
+    <!-- PR-11: HTTP Interceptor Demo -->
+    <section class="card" style="margin-bottom:12px">
+      <h3 style="margin:0 0 8px 0">HTTP Interceptor Demo</h3>
+      <button class="btn" (click)="loadAll()" [disabled]="loading">
+        {{ loading ? 'Завантаження…' : 'Завантажити users/posts/todos' }}
+      </button>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-top:12px">
+        <div>
+          <h4 class="muted">Users</h4>
+          <ul style="margin:0;padding-left:18px">
+            <li *ngFor="let u of users">{{ u.name }} ({{ u.email }})</li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="muted">Posts</h4>
+          <ul style="margin:0;padding-left:18px">
+            <li *ngFor="let p of posts">{{ p.title }}</li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="muted">Todos</h4>
+          <ul style="margin:0;padding-left:18px">
+            <li *ngFor="let t of todos">
+              <input type="checkbox" [checked]="t.completed" disabled> {{ t.title }}
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+    </section>
+
+    <!-- PR-06: Service Hierarchy Demo -->
+    <section class="card" style="margin-bottom:12px">
+      <h3 style="margin:0 0 8px 0">Каталог мобільних телефонів</h3>
+      <ul style="margin:0;padding-left:18px">
+        <li *ngFor="let i of items">{{ i }}</li>
+      </ul>
+    </section>
+
+    <!-- PR-09: Filter pipes demo -->
+    <app-phone-search></app-phone-search>
+
+    <!-- Your existing main content -->
+    <app-user-profile></app-user-profile>
+    <app-main-content></app-main-content>
+  </section>
+</div>
+
+<app-footer></app-footer>
